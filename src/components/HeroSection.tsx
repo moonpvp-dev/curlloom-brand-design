@@ -2,6 +2,13 @@ import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
 
 const HeroSection = () => {
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -32,10 +39,10 @@ const HeroSection = () => {
           Where curl science meets botanical luxury. Intentionally formulated for curly and low-porosity hair that demands performance.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center opacity-0 animate-fade-in" style={{ animationDelay: '0.8s' }}>
-          <Button variant="hero" size="xl">
+          <Button variant="hero" size="xl" onClick={() => scrollToSection('products')}>
             Shop Crafted Curl
           </Button>
-          <Button variant="glow" size="xl">
+          <Button variant="glow" size="xl" onClick={() => scrollToSection('ingredients')}>
             Discover the Science
           </Button>
         </div>
