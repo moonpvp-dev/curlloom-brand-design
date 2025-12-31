@@ -1,13 +1,46 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import { Helmet } from "react-helmet-async";
+import Navbar from "@/components/Navbar";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import ProductSection from "@/components/ProductSection";
+import RoutineSection from "@/components/RoutineSection";
+import IngredientsSection from "@/components/IngredientsSection";
+import BundleSection from "@/components/BundleSection";
+import NewsletterSection from "@/components/NewsletterSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
+    <>
+      <Helmet>
+        <title>CurlLoom | Premium Crafted Curl Care</title>
+        <meta name="description" content="Crafted curl care, elevated. Premium formulas for curly and low-porosity hair. Science meets botanical luxury for curls that demand more." />
+        <meta name="keywords" content="curly hair, curl care, natural hair products, low porosity hair, curl cream, leave-in conditioner" />
+        <link rel="canonical" href="https://curlloom.com" />
+      </Helmet>
+      
+      <div className="min-h-screen bg-background text-foreground">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <section id="about">
+            <AboutSection />
+          </section>
+          <section id="products">
+            <ProductSection />
+          </section>
+          <section id="routine">
+            <RoutineSection />
+          </section>
+          <section id="ingredients">
+            <IngredientsSection />
+          </section>
+          <BundleSection />
+          <NewsletterSection />
+        </main>
+        <Footer />
       </div>
-    </div>
+    </>
   );
 };
 
