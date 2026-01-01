@@ -1,6 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Star, Package } from "lucide-react";
+import { toast } from "sonner";
 import bundleImage from "@/assets/bundle-starter-kit.jpg";
+
+const handleShopKit = () => {
+  toast.success("Starter Curl Kit added to bag!", {
+    description: "You're saving $12 with this bundle.",
+  });
+};
 
 const BundleSection = () => {
   return (
@@ -77,7 +84,7 @@ const BundleSection = () => {
                 </span>
               </div>
 
-              <Button variant="hero" size="xl" className="w-full sm:w-auto">
+              <Button variant="hero" size="xl" className="w-full sm:w-auto" onClick={handleShopKit}>
                 Shop the Kit
               </Button>
             </div>

@@ -1,7 +1,14 @@
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 import productRefreshSpray from "@/assets/product-refresh-spray.jpg";
 import productLeaveIn from "@/assets/product-leave-in.jpg";
 import productCurlCream from "@/assets/product-curl-cream.jpg";
+
+const handleAddToBag = (productName: string) => {
+  toast.success(`${productName} added to bag!`, {
+    description: "Continue shopping or proceed to checkout.",
+  });
+};
 
 const ProductSection = () => {
   const products = [
@@ -94,7 +101,11 @@ const ProductSection = () => {
                 </p>
 
                 {/* CTA */}
-                <Button variant="glow" className="w-full mt-6">
+                <Button 
+                  variant="glow" 
+                  className="w-full mt-6"
+                  onClick={() => handleAddToBag(product.name)}
+                >
                   Add to Bag
                 </Button>
               </div>
