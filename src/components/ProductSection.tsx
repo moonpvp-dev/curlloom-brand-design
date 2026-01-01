@@ -7,6 +7,10 @@ import productCurlCream from "@/assets/product-curl-cream.jpg";
 const handleAddToBag = (productName: string) => {
   toast.success(`${productName} added to bag!`, {
     description: "Continue shopping or proceed to checkout.",
+    action: {
+      label: "Checkout",
+      onClick: () => window.location.href = "/checkout",
+    },
   });
 };
 

@@ -6,6 +6,10 @@ import bundleImage from "@/assets/bundle-starter-kit.jpg";
 const handleShopKit = () => {
   toast.success("Starter Curl Kit added to bag!", {
     description: "You're saving $12 with this bundle.",
+    action: {
+      label: "Checkout",
+      onClick: () => window.location.href = "/checkout",
+    },
   });
 };
 
