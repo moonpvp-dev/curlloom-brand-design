@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ShoppingBag } from "lucide-react";
 
@@ -17,11 +18,11 @@ const Navbar = () => {
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center gap-2">
             <span className="font-serif text-2xl font-semibold text-foreground">
               Curl<span className="text-gradient">Loom</span>
             </span>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
@@ -39,12 +40,16 @@ const Navbar = () => {
 
           {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
-            <Button variant="ghost" size="icon">
-              <ShoppingBag className="w-5 h-5" />
-            </Button>
-            <Button variant="glow" size="sm">
-              Shop Now
-            </Button>
+            <Link to="/checkout">
+              <Button variant="ghost" size="icon">
+                <ShoppingBag className="w-5 h-5" />
+              </Button>
+            </Link>
+            <a href="#products">
+              <Button variant="glow" size="sm">
+                Shop Now
+              </Button>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -71,12 +76,16 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex gap-3 pt-4 border-t border-border/50">
-                <Button variant="glow" className="flex-1">
-                  Shop Now
-                </Button>
-                <Button variant="ghost" size="icon">
-                  <ShoppingBag className="w-5 h-5" />
-                </Button>
+                <a href="#products" className="flex-1">
+                  <Button variant="glow" className="w-full">
+                    Shop Now
+                  </Button>
+                </a>
+                <Link to="/checkout">
+                  <Button variant="ghost" size="icon">
+                    <ShoppingBag className="w-5 h-5" />
+                  </Button>
+                </Link>
               </div>
             </div>
           </div>
