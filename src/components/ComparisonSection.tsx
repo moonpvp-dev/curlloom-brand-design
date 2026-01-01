@@ -8,7 +8,7 @@ const ComparisonSection = () => {
       others: "Often contain silicones, sulfates, and parabens",
     },
     {
-      feature: "Formulated for Low-Porosity Hair",
+      feature: "Formulated for All Hair Porosities",
       curlLoom: true,
       others: "Generic formulas for all hair types",
     },
