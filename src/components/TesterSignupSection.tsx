@@ -7,7 +7,7 @@ import { FlaskConical, CheckCircle } from "lucide-react";
 import { toast } from "sonner";
 import { z } from "zod";
 
-const SHEETSDB_API_URL = "PLACEHOLDER"; // Will be replaced with actual SheetsDB URL
+const SHEETSDB_API_URL = "https://sheetdb.io/api/v1/786bou01py30i";
 
 const formSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
@@ -45,13 +45,18 @@ const TesterSignupSection = () => {
       return;
     }
 
-    if (SHEETSDB_API_URL === "PLACEHOLDER") {
-      toast.error("Tester sign-up is not configured yet.");
-      return;
-    }
-
     setIsSubmitting(true);
     try {
+      // Check for duplicate email
+      const checkRes = await fetch(`${SHEETSDB_API_URL}/search?email=${encodeURIComponent(result.data.email)}`);
+      const existing = await checkRes.json();
+
+      if (Array.isArray(existing) && existing.length > 0) {
+        toast.info("You've already signed up as a tester! 💜");
+        setIsSubmitting(false);
+        return;
+      }
+
       const response = await fetch(SHEETSDB_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
