@@ -25,24 +25,7 @@ const Index = () => {
       <div className="min-h-screen bg-background text-foreground">
         <Navbar />
         <main>
-          <HeroSection />
-          <section id="about">
-            <AboutSection />
-          </section>
-          <section id="products">
-            <ProductSection />
-          </section>
-          <section id="routine">
-            <RoutineSection />
-          </section>
-          <section id="ingredients">
-            <IngredientsSection />
-          </section>
-          <ComparisonSection />
-          <BundleSection />
-          <FounderSection />
           <TesterSignupSection />
-          <NewsletterSection />
         </main>
         <Footer />
       </div>
