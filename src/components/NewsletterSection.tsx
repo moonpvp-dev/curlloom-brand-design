@@ -2,16 +2,53 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Mail, Sparkles } from "lucide-react";
+import { toast } from "sonner";
+import { z } from "zod";
+
+const SHEETSDB_API_URL = "https://sheetdb.io/api/v1/s9on8xwntcu7t";
+
+const emailSchema = z.string().trim().email("Please enter a valid email").max(255);
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (email) {
+
+    const result = emailSchema.safeParse(email);
+    if (!result.success) {
+      toast.error(result.error.errors[0].message);
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      // Check if email already exists
+      const checkRes = await fetch(`${SHEETSDB_API_URL}/search?email=${encodeURIComponent(result.data)}`);
+      const existing = await checkRes.json();
+
+      if (Array.isArray(existing) && existing.length > 0) {
+        toast.info("You're already subscribed! 💜");
+        setIsSubmitting(false);
+        return;
+      }
+
+      const response = await fetch(SHEETSDB_API_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data: [{ email: result.data }] }),
+      });
+
+      if (!response.ok) throw new Error("Failed to submit");
+
       setIsSubmitted(true);
-      setEmail("");
+      toast.success("Welcome to the community! 💜");
+    } catch {
+      toast.error("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -48,9 +85,10 @@ const NewsletterSection = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     className="flex-1 bg-background/50 border-border/50 focus:border-primary placeholder:text-muted-foreground/60 h-12 rounded-xl"
                     required
+                    maxLength={255}
                   />
-                  <Button type="submit" variant="hero" size="lg">
-                    Subscribe
+                  <Button type="submit" variant="hero" size="lg" disabled={isSubmitting}>
+                    {isSubmitting ? "..." : "Subscribe"}
                   </Button>
                 </form>
 
