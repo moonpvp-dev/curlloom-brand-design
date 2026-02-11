@@ -3,13 +3,9 @@ import { Star, Package } from "lucide-react";
 import { toast } from "sonner";
 import bundleImage from "@/assets/bundle-starter-kit.jpg";
 
-const handleShopKit = () => {
-  toast.success("Starter Curl Kit added to bag!", {
-    description: "You're saving $12 with this bundle.",
-    action: {
-      label: "Checkout",
-      onClick: () => window.location.href = "/checkout",
-    },
+const handleComingSoon = () => {
+  toast.info("Coming Soon!", {
+    description: "Our products are currently in testing. Sign up below to become a tester!",
   });
 };
 
@@ -88,8 +84,8 @@ const BundleSection = () => {
                 </span>
               </div>
 
-              <Button variant="hero" size="xl" className="w-full sm:w-auto" onClick={handleShopKit}>
-                Shop the Kit
+              <Button variant="hero" size="xl" className="w-full sm:w-auto" onClick={handleComingSoon}>
+                Coming Soon
               </Button>
             </div>
           </div>

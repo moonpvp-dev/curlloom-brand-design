@@ -8,6 +8,7 @@ import IngredientsSection from "@/components/IngredientsSection";
 import ComparisonSection from "@/components/ComparisonSection";
 import BundleSection from "@/components/BundleSection";
 import FounderSection from "@/components/FounderSection";
+import TesterSignupSection from "@/components/TesterSignupSection";
 import NewsletterSection from "@/components/NewsletterSection";
 import Footer from "@/components/Footer";
 
@@ -40,6 +41,7 @@ const Index = () => {
           <ComparisonSection />
           <BundleSection />
           <FounderSection />
+          <TesterSignupSection />
           <NewsletterSection />
         </main>
         <Footer />
