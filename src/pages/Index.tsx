@@ -16,9 +16,9 @@ const Index = () => {
   return (
     <>
       <Helmet>
-        <title>CurlLoom | Premium Crafted Curl Care</title>
-        <meta name="description" content="Crafted curl care, elevated. Premium formulas for curly and low-porosity hair. Science meets botanical luxury for curls that demand more." />
-        <meta name="keywords" content="curly hair, curl care, natural hair products, low porosity hair, curl cream, leave-in conditioner" />
+        <title>CurlLoom | Crafted Curl</title>
+        <meta name="description" content="Crafted curl. elevated, premium formulas for curly hair. Science based hair care for curls that demand more." />
+        <meta name="keywords" content="curly hair, curl care, natural hair products, low porosity hair, medium porosity hair, high porosity hair, curl cream, leave-in conditioner" />
         <link rel="canonical" href="https://curlloom.com" />
       </Helmet>
       
