@@ -38,7 +38,7 @@ const Footer = () => {
               </span>
             </a>
             <p className="text-sm text-muted-foreground mb-6">
-              Crafted curl care, elevated. Premium formulas for curly hair.
+              Crafted curl. Elevated, premium formulas for curly hair.
             </p>
             <div className="flex gap-4">
               {socialLinks.map((social) => (
@@ -111,7 +111,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-border/50 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © 2025 CurlLoom LLC. All rights reserved.
+            © 2026 CurlLoom LLC. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
             <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
