@@ -4,13 +4,9 @@ import productRefreshSpray from "@/assets/product-refresh-spray.jpg";
 import productLeaveIn from "@/assets/product-leave-in.jpg";
 import productCurlCream from "@/assets/product-curl-cream.jpg";
 
-const handleAddToBag = (productName: string) => {
-  toast.success(`${productName} added to bag!`, {
-    description: "Continue shopping or proceed to checkout.",
-    action: {
-      label: "Checkout",
-      onClick: () => window.location.href = "/checkout",
-    },
+const handleComingSoon = () => {
+  toast.info("Coming Soon!", {
+    description: "Our products are currently in testing. Sign up below to become a tester!",
   });
 };
 
@@ -108,9 +104,9 @@ const ProductSection = () => {
                 <Button 
                   variant="glow" 
                   className="w-full mt-6"
-                  onClick={() => handleAddToBag(product.name)}
+                  onClick={handleComingSoon}
                 >
-                  Add to Bag
+                  Coming Soon
                 </Button>
               </div>
 
