@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Instagram, Twitter, Facebook, Youtube } from "lucide-react";
 
 const Footer = () => {
@@ -8,7 +9,7 @@ const Footer = () => {
       { name: "Gift Cards", href: "#" },
     ],
     help: [
-      { name: "Contact Us", href: "#" },
+      { name: "Contact Us", href: "/contact" },
       { name: "Shipping & Returns", href: "#" },
       { name: "FAQ", href: "#" },
     ],
@@ -79,12 +80,21 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.help.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.name}
-                  </a>
+                  {link.href.startsWith("/") ? (
+                    <Link
+                      to={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                    >
+                      {link.name}
+                    </a>
+                  )}
                 </li>
               ))}
             </ul>
