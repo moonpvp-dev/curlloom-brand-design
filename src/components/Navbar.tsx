@@ -45,11 +45,11 @@ const Navbar = () => {
                 <ShoppingBag className="w-5 h-5" />
               </Button>
             </Link>
-            <a href="#products">
+            <Link to="/checkout">
               <Button variant="glow" size="sm">
                 Shop Now
               </Button>
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -76,11 +76,11 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="flex gap-3 pt-4 border-t border-border/50">
-                <a href="#products" className="flex-1">
+                <Link to="/checkout" className="flex-1">
                   <Button variant="glow" className="w-full">
                     Shop Now
                   </Button>
-                </a>
+                </Link>
                 <Link to="/checkout">
                   <Button variant="ghost" size="icon">
                     <ShoppingBag className="w-5 h-5" />

@@ -4,9 +4,9 @@ import { Instagram, Twitter, Facebook, Youtube } from "lucide-react";
 const Footer = () => {
   const footerLinks = {
     shop: [
-      { name: "All Products", href: "#" },
-      { name: "Bundles", href: "#" },
-      { name: "Gift Cards", href: "#" },
+      { name: "All Products", href: "/checkout" },
+      { name: "Bundles", href: "/checkout" },
+      { name: "Gift Cards", href: "/checkout" },
     ],
     help: [
       { name: "Contact Us", href: "/contact" },
@@ -63,12 +63,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
