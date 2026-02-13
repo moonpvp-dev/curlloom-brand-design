@@ -31,7 +31,7 @@ const HeroSection = () => {
         <p className="text-lavender font-sans text-sm tracking-[0.3em] uppercase mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
           Premium Curl Care
         </p>
-        <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-medium text-foreground mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+        <h1 className="font-sf-pro text-5xl md:text-7xl lg:text-8xl font-medium text-foreground mb-6 opacity-0 animate-fade-in" style={{ animationDelay: '0.4s' }}>
           Crafted Curl Care.
           <span className="block text-gradient mt-2">Elevated.</span>
         </h1>

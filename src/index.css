@@ -4,6 +4,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://fonts.cdnfonts.com/css/geist');
+@import url('https://fonts.cdnfonts.com/css/sf-pro-display');
 
 @layer base {
   :root {
@@ -87,6 +88,10 @@
   
   .font-sans {
     font-family: 'Geist', sans-serif;
+  }
+
+  .font-sf-pro {
+    font-family: 'SF Pro Display', sans-serif;
   }
 
   .text-gradient {
