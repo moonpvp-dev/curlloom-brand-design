@@ -19,7 +19,7 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2">
-            <span className="font-serif text-2xl font-semibold text-foreground">
+            <span className="font-sf-pro text-2xl font-semibold text-foreground">
               Curl<span className="text-gradient">Loom</span>
             </span>
           </Link>
