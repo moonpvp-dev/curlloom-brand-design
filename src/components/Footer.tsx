@@ -34,7 +34,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <a href="/" className="inline-block mb-4">
-              <span className="font-serif text-2xl font-semibold text-foreground">
+              <span className="font-sf-pro text-2xl font-semibold text-foreground">
                 Curl<span className="text-gradient">Loom</span>
               </span>
             </a>
@@ -59,7 +59,7 @@ const Footer = () => {
 
           {/* Shop Links */}
           <div>
-            <h4 className="font-serif text-lg text-foreground mb-4">Shop</h4>
+            <h4 className="font-sf-pro text-lg text-foreground mb-4">Shop</h4>
             <ul className="space-y-3">
               {footerLinks.shop.map((link) => (
                 <li key={link.name}>
@@ -76,7 +76,7 @@ const Footer = () => {
 
           {/* Help Links */}
           <div>
-            <h4 className="font-serif text-lg text-foreground mb-4">Help</h4>
+            <h4 className="font-sf-pro text-lg text-foreground mb-4">Help</h4>
             <ul className="space-y-3">
               {footerLinks.help.map((link) => (
                 <li key={link.name}>
@@ -102,7 +102,7 @@ const Footer = () => {
 
           {/* Company Links */}
           <div>
-            <h4 className="font-serif text-lg text-foreground mb-4">Company</h4>
+            <h4 className="font-sf-pro text-lg text-foreground mb-4">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
