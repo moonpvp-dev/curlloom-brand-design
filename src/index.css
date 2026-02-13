@@ -77,13 +77,13 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Playfair Display', serif;
+    font-family: 'SF Pro Display', sans-serif;
   }
 }
 
 @layer utilities {
   .font-serif {
-    font-family: 'Playfair Display', serif;
+    font-family: 'SF Pro Display', sans-serif;
   }
   
   .font-sans {
