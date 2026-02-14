@@ -7,7 +7,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { name: "Products", href: "#products" },
+    { name: "Products", href: "/checkout" },
     { name: "Routine", href: "#routine" },
     { name: "Ingredients", href: "#ingredients" },
     { name: "About", href: "#about" },
@@ -26,16 +26,27 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors relative group"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.href.startsWith("/") ? (
+                <Link
+                  key={link.name}
+                  to={link.href}
+                  className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors relative group"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
+                </Link>
+              ) : (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm font-sans text-muted-foreground hover:text-foreground transition-colors relative group"
+                >
+                  {link.name}
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary group-hover:w-full transition-all duration-300" />
+                </a>
+              )
+            )}
           </div>
 
           {/* Desktop CTA */}
@@ -65,16 +76,27 @@ const Navbar = () => {
         {isOpen && (
           <div className="md:hidden py-6 border-t border-border/50 animate-fade-in">
             <div className="flex flex-col gap-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsOpen(false)}
-                  className="text-lg font-sans text-muted-foreground hover:text-foreground transition-colors py-2"
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) =>
+                link.href.startsWith("/") ? (
+                  <Link
+                    key={link.name}
+                    to={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-sans text-muted-foreground hover:text-foreground transition-colors py-2"
+                  >
+                    {link.name}
+                  </Link>
+                ) : (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-lg font-sans text-muted-foreground hover:text-foreground transition-colors py-2"
+                  >
+                    {link.name}
+                  </a>
+                )
+              )}
               <div className="flex gap-3 pt-4 border-t border-border/50">
                 <Link to="/checkout" className="flex-1">
                   <Button variant="glow" className="w-full">
