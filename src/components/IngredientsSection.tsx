@@ -1,93 +1,50 @@
-import { useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const IngredientsSection = () => {
-  const products = {
-    refresh: {
-      name: "Refresh Spray",
-      ingredients: [
-        "Distilled Water",
-        "Aloe Vera Juice",
-        "Vegetable Glycerin",
-        "Golden Jojoba Oil",
-        "Clear Jojoba Oil",
-        "Lavender Essential Oil",
-        "Rosemary Essential Oil",
-        "Vanilla Extract",
-        "Geogard ECT"
-      ]
-    },
-    cream: {
-      name: "Curl Cream",
-      ingredients: [
-        "Shea Butter",
-        "Babassu Oil",
-        "Grapeseed Oil",
-        "Aloe Vera Juice",
-        "Inulin",
-        "Agave Extract",
-        "Hydroxyethylcellulose",
-        "Panthenol",
-        "Hydrolyzed Silk Protein",
-        "Sodium Gluconate",
-        "Lavender Essential Oil",
-        "Rosemary Essential Oil",
-        "Geogard ECT"
-      ]
-    },
-    leavein: {
-      name: "Leave-In Conditioner",
-      ingredients: [
-        "Aloe Vera Gel",
-        "Grapeseed Oil",
-        "Avocado Oil",
-        "Cetearyl Alcohol",
-        "Castor Oil",
-        "Coco Glucoside",
-        "Hydroxyethylcellulose",
-        "Panthenol",
-        "Hydrolyzed Silk Protein",
-        "Inulin",
-        "Agave Extract",
-        "Sodium Gluconate",
-        "Lavender Essential Oil",
-        "Rosemary Essential Oil",
-        "Geogard ECT"
-      ]
-    }
-  };
+  const ingredients = [
+    "Water",
+    "Aloe Vera Juice",
+    "Grapeseed Oil",
+    "Sunflower Oil",
+    "Propanediol",
+    "Sodium PCA",
+    "Beta-Glucan",
+    "Marshmallow Root Extract",
+    "Hydroxyethylcellulose",
+    "Sodium Gluconate",
+    "Geogard ECT",
+  ];
 
   const keyIngredients = [
     {
       name: "Aloe Vera",
       benefit: "Deep hydration & scalp soothing",
-      detail: "Our organic aloe penetrates the hair shaft to deliver moisture where curls need it most."
+      detail: "Organic aloe penetrates the hair shaft to deliver moisture where curls need it most."
     },
     {
-      name: "Plant Oils",
-      benefit: "Nourishment & shine",
-      detail: "A curated blend of jojoba, grapeseed, avocado, and babassu oils that mimic hair's natural lipids."
+      name: "Grapeseed Oil",
+      benefit: "Lightweight shine & strength",
+      detail: "Rich in vitamin E and linoleic acid, adding shine without heaviness while strengthening the cuticle."
     },
     {
-      name: "Inulin",
-      benefit: "Curl definition & hold",
-      detail: "A plant-derived styling agent that defines curls without stiffness or crunch."
+      name: "Marshmallow Root Extract",
+      benefit: "Slip & detangling",
+      detail: "Provides exceptional slip for easy detangling, reduces breakage, and adds natural softness."
     },
     {
-      name: "Agave Extract",
-      benefit: "Moisture retention",
-      detail: "Natural humectant that draws moisture into the hair and locks it in for lasting hydration."
+      name: "Beta-Glucan",
+      benefit: "Soothing & repair",
+      detail: "A polysaccharide derived from oats that soothes the scalp and supports hair repair over time."
     },
     {
-      name: "Hydrolyzed Silk Protein",
-      benefit: "Strength & smoothness",
-      detail: "Repairs and protects the hair cuticle, leaving curls silky smooth and resilient."
+      name: "Sodium PCA",
+      benefit: "Natural moisture retention",
+      detail: "Naturally found in hair, it attracts and binds moisture from the environment for lasting hydration."
     }
   ];
 
   return (
     <section className="py-24 md:py-32 relative overflow-hidden">
-      {/* Background */}
       <div className="absolute inset-0 bg-secondary/30" />
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-4xl bg-gradient-radial from-primary/10 via-transparent to-transparent" />
 
@@ -136,67 +93,32 @@ const IngredientsSection = () => {
             ))}
           </div>
 
-          {/* Full Ingredient Lists */}
+          {/* Full Ingredient List */}
           <div className="card-gradient rounded-2xl border border-border/50 p-8">
             <h3 className="font-serif text-2xl text-foreground text-center mb-8">
-              Full Ingredient Lists
+              Full Ingredient List
             </h3>
-            
-            <Tabs defaultValue="refresh" className="w-full">
-              <TabsList className="w-full flex flex-wrap justify-center gap-2 bg-transparent mb-8">
-                <TabsTrigger 
-                  value="refresh" 
-                  className="px-6 py-3 rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                >
-                  Refresh Spray
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="leavein"
-                  className="px-6 py-3 rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                >
-                  Leave-In Conditioner
-                </TabsTrigger>
-                <TabsTrigger 
-                  value="cream"
-                  className="px-6 py-3 rounded-full data-[state=active]:bg-primary data-[state=active]:text-primary-foreground"
-                >
-                  Curl Cream
-                </TabsTrigger>
-              </TabsList>
-
-              {Object.entries(products).map(([key, product]) => (
-                <TabsContent key={key} value={key} className="mt-0">
-                  <div className="max-w-2xl mx-auto">
-                    <div className="flex flex-wrap gap-2 justify-center">
-                      {product.ingredients.map((ingredient, index) => (
-                        <span 
-                          key={ingredient}
-                          className="px-4 py-2 rounded-full bg-secondary/50 border border-border/30 text-foreground/80 text-sm"
-                        >
-                          {ingredient}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </TabsContent>
-              ))}
-            </Tabs>
+            <div className="max-w-2xl mx-auto">
+              <div className="flex flex-wrap gap-2 justify-center">
+                {ingredients.map((ingredient) => (
+                  <span 
+                    key={ingredient}
+                    className="px-4 py-2 rounded-full bg-secondary/50 border border-border/30 text-foreground/80 text-sm"
+                  >
+                    {ingredient}
+                  </span>
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* Badges */}
           <div className="flex flex-wrap justify-center gap-3 mt-12">
-            <span className="px-4 py-2 rounded-full border border-primary/30 text-foreground/80 text-sm">
-              Sulfate Free
-            </span>
-            <span className="px-4 py-2 rounded-full border border-primary/30 text-foreground/80 text-sm">
-              Silicone Free
-            </span>
-            <span className="px-4 py-2 rounded-full border border-primary/30 text-foreground/80 text-sm">
-              Cruelty Free
-            </span>
-            <span className="px-4 py-2 rounded-full border border-primary/30 text-foreground/80 text-sm">
-              Vegan Friendly
-            </span>
+            {["Sulfate Free", "Silicone Free", "Cruelty Free", "Vegan Friendly"].map((badge) => (
+              <span key={badge} className="px-4 py-2 rounded-full border border-primary/30 text-foreground/80 text-sm">
+                {badge}
+              </span>
+            ))}
           </div>
         </div>
       </div>

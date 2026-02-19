@@ -17,7 +17,7 @@ const Index = () => {
     <>
       <Helmet>
         <title>CurlLoom | Crafted Curl</title>
-        <meta name="description" content="Crafted curl. elevated, premium formulas for curly hair. Science based hair care for curls that demand more." />
+        <meta name="description" content="CurlLoom | Premium Crafted Curl Care. Lightweight, clean formulas with aloe vera, grapeseed oil, marshmallow root, and beta-glucan for curls that demand more." />
         <meta name="keywords" content="curly hair, curl care, natural hair products, low porosity hair, medium porosity hair, high porosity hair, curl cream, leave-in conditioner" />
         <link rel="canonical" href="https://curlloom.com" />
       </Helmet>

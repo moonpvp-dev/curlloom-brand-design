@@ -7,6 +7,11 @@ import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import Checkout from "./pages/Checkout";
 import Contact from "./pages/Contact";
+import Ingredients from "./pages/Ingredients";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import ShippingReturns from "./pages/ShippingReturns";
+import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +27,11 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/ingredients" element={<Ingredients />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/shipping-returns" element={<ShippingReturns />} />
+            <Route path="/faq" element={<FAQ />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

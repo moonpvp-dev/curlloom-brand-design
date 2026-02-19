@@ -10,12 +10,12 @@ const Footer = () => {
     ],
     help: [
       { name: "Contact Us", href: "/contact" },
-      { name: "Shipping & Returns", href: "#" },
-      { name: "FAQ", href: "#" },
+      { name: "Shipping & Returns", href: "/shipping-returns" },
+      { name: "FAQ", href: "/faq" },
     ],
     company: [
       { name: "Our Story", href: "#" },
-      { name: "Ingredients", href: "#" },
+      { name: "Ingredients", href: "/ingredients" },
       { name: "Blog", href: "#" },
     ],
   };
@@ -27,17 +27,32 @@ const Footer = () => {
     { icon: Youtube, href: "#", label: "YouTube" },
   ];
 
+  const renderLink = (link: { name: string; href: string }) => {
+    if (link.href.startsWith("/")) {
+      return (
+        <Link to={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          {link.name}
+        </Link>
+      );
+    }
+    return (
+      <a href={link.href} className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+        {link.name}
+      </a>
+    );
+  };
+
   return (
     <footer className="py-16 bg-secondary/30 border-t border-border/50">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <a href="/" className="inline-block mb-4">
+            <Link to="/" className="inline-block mb-4">
               <span className="font-sf-pro text-2xl font-semibold text-foreground">
                 Curl<span className="text-gradient">Loom</span>
               </span>
-            </a>
+            </Link>
             <p className="text-sm text-muted-foreground mb-6">
               Crafted curl. Elevated, premium formulas for curly hair.
             </p>
@@ -62,14 +77,7 @@ const Footer = () => {
             <h4 className="font-sf-pro text-lg text-foreground mb-4">Shop</h4>
             <ul className="space-y-3">
               {footerLinks.shop.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
+                <li key={link.name}>{renderLink(link)}</li>
               ))}
             </ul>
           </div>
@@ -79,23 +87,7 @@ const Footer = () => {
             <h4 className="font-sf-pro text-lg text-foreground mb-4">Help</h4>
             <ul className="space-y-3">
               {footerLinks.help.map((link) => (
-                <li key={link.name}>
-                  {link.href.startsWith("/") ? (
-                    <Link
-                      to={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.name}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                    >
-                      {link.name}
-                    </a>
-                  )}
-                </li>
+                <li key={link.name}>{renderLink(link)}</li>
               ))}
             </ul>
           </div>
@@ -105,14 +97,7 @@ const Footer = () => {
             <h4 className="font-sf-pro text-lg text-foreground mb-4">Company</h4>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
+                <li key={link.name}>{renderLink(link)}</li>
               ))}
             </ul>
           </div>
@@ -124,8 +109,8 @@ const Footer = () => {
             © 2026 CurlLoom LLC. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
+            <Link to="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</Link>
+            <Link to="/terms" className="hover:text-foreground transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>
